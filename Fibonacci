@@ -9,7 +9,7 @@ pipeline {
                 
                 // Build the Docker image
                 script {
-                    docker build -t "$fibonacci-image" "$/home/sadmin"
+                    docker build -t "fibonacci-image" "/home/sadmin"
             }
         }
         
