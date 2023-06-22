@@ -5,7 +5,7 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 script {
-                    docker.build('balesh123/fibo')
+                    docker.build('fibonacci')
                 }
             }
         }
