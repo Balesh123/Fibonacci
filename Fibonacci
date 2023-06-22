@@ -2,12 +2,8 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
+        stage('Build Docker image') {
             steps {
-                // Clone the repository
-                git 'https://github.com/Balesh123/Fibonacci.git'
-                
-                // Build the Docker image
                 script {
                     docker.build('fibonacci-image')
             }
@@ -16,12 +12,9 @@ pipeline {
         stage('Push') {
             steps {
                 // Push the Docker image to Docker Hub
-                withCredentials([balesh123/Balesh_2017(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) 
-                {
-                    sh 'docker login -u $balesh123 -p $Balesh_2017'
-                    sh 'docker push balesh123/fibo '
-                }
+                    docker.withRegistry('https://registry.hub.docker.com', 'Docker_Login') 
             }
         }
-    }
+        stage('Cleanup') { steps { cleanWs() } }
+}
 }
