@@ -15,6 +15,8 @@ pipeline {
                     docker.withRegistry('https://registry.hub.docker.com', 'Docker_Login') 
             }
         }
-        stage('Cleanup') { steps { cleanWs() } }
+        stage('Cleanup') { steps 
+                           { cleanWs() }
+}
 }
 }
