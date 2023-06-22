@@ -16,8 +16,8 @@ pipeline {
         stage('Push') {
             steps {
                 // Push the Docker image to Docker Hub
-                withCredentials([balesh123/Balesh_2017(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
-                    sh 'docker login -u $balesh123 -p $Balesh_2017'
+                withCredentials([balesh123/M@y123#@!(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                    sh 'docker login -u $balesh123 -p $M@y123#@!'
                     sh 'docker push balesh123/fibo '
                 }
             }
